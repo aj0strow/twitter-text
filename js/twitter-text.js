@@ -1283,15 +1283,15 @@
       return "empty";
     }
 
-    // Determine max length independent of URL length
-    if (twttr.txt.getTweetLength(text) > MAX_LENGTH) {
-      return "too_long";
-    }
-
     for (var i = 0; i < INVALID_CHARACTERS.length; i++) {
       if (text.indexOf(INVALID_CHARACTERS[i]) >= 0) {
         return "invalid_characters";
       }
+    }
+
+    // Determine max length independent of URL length
+    if (twttr.txt.getTweetLength(text) > MAX_LENGTH) {
+      return "too_long";
     }
 
     return false;
